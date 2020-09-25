@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import Routes from './layout/Routes';
+import {
+  NavLink,
+  withRouter
+} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
+
+class App extends Component {
+
+  constructor(props){
+    super(props);
+  }
+
+  componentDidMount(){
+    // console.log(this.props);
+  }
+
+  render() {
+    return (
+      <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item">
+                <NavLink className="nav-link" activeClassName="active" to="/">Home</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" activeClassName="active" to="/dynamic-form">Form</NavLink>
+              </li>
+            </ul>
+          </div>
+        </nav>
       </header>
+
+      <Routes />
     </div>
-  );
+    )
+  }
 }
 
-export default App;
+export default App = withRouter(App);
